@@ -25,12 +25,28 @@ def cadastro(request):
         
         v_email = User.objects.filter(email=email)
         
-        if v_email.exists()
+        if v_email.exists():
             messages.add_message(request, constants.ERROR, 'Email já existe')
             return redirect(reverse('cadastro'))  
         
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
-        messages.add_message(request, constants.ERROR, 'Cadastro criado com Sucesso')  
+        messages.add_message(request, constants.SUCCESS, 'Cadastro criado com Sucesso')  
         return redirect(reverse('login'))
+    
+def login(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
+    elif request.method == "POST":
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = auth.authenticate(username=username, password=senha)
+
+        if not user:
+            messages.add_message(request, constants.ERROR, 'Username ou senha inválidos')
+            return redirect(reverse('login'))
+        
+        auth.login(request, user)
+        return redirect('/eventos/novo_evento/')
 
