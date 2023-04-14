@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('autenticacao.urls')),
     path('eventos/', include('eventos.urls')),
+    path('cliente/', include('cliente.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

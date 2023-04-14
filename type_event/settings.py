@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # APPs
     'autenticacao',
     'eventos',
+    'cliente',
 ]
 
 MIDDLEWARE = [

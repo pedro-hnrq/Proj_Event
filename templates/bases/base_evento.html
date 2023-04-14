@@ -29,24 +29,27 @@
                     <li><a class="dropdown-item" href="{% url 'gerenciar_evento'%}">Gerenciar eventos</a></li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Cliente
                 </a>
                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="">Meus eventos</a></li>
-                    <li><a class="dropdown-item" href="">Meus certificados</a></li>
+                    <li><a class="dropdown-item" href="{% url 'meus_certificados'%}">Meus certificados</a></li>
                 </ul>
-            </li>
+            </li> -->
             
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle destaque-usuario" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{user.username}}
             </a>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="">Meus eventos</a></li>
+              <li><a class="dropdown-item" href="{% url 'meus_certificados'%}">Meus certificados</a></li>
               <li><a class="dropdown-item" href="{% url 'sair' %}">Sair</a></li>
             </ul>
-          </li>
+
+          </li><li></li>
         </ul>
       </div>
     </div>

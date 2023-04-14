@@ -7,13 +7,16 @@
 }.logo{
     font-family: 'Sedgwick Ave Display', cursive;
     font-size: 45px;
+    font-display: auto;
     margin-top: 40px;
-    
+    padding-bottom: 1%;      
     display: flex;
     justify-content: center;    
     align-items: center;
-    background: -webkit-linear-gradient(90deg, rgba(138,29,78,1) 0%, rgba(213,161,30,1) 47%, rgba(138,29,78,1) 100%);
-    background-clip: text;
+    color: transparent;
+    background: linear-gradient(130deg, rgba(138,29,78,1) 10%, rgba(213,161,30,1) 55%, rgba(138,29,78,1) 30%);
+    background-clip: text;    
+    -webkit-background-clip: text;   
     -webkit-text-fill-color: transparent;
 }
 
