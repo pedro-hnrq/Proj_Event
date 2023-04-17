@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
-.bg-inscricao{
 
+
+
+.bg-inscricao{
     height: 100vh;
     background-color: var(--dark-color);
     padding-left: 1%;
@@ -34,7 +36,7 @@
     background-color: var(--main-color);
     margin: auto;
     padding: 40px;
-    margin-top: 4%;
+    margin-top: 3%;
     border-radius: 20px;
     box-shadow: 1px 1px 5px 1px #0e0e0e;
     height: 65vh;
@@ -44,18 +46,37 @@
     color: var(--differential-color);
     text-decoration: none;
 }
+/* Olho */
+form .input-field {
+    position: relative;
+}.input-field .show-hide {
+    position: absolute;
+    right: 13px;
+    top: 68%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #6a6a6a;
+    cursor: pointer;
+    padding: 3px;
+}
+/* Notificação */
 
-.btn-principal{
-    
+
+.btn-principal{    
     background-color: transparent;
     border: 1px solid var(--contrast-color);
     color: white;
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+    transition: all 0.3s ease;
 }.btn-principal:hover{
     background: rgb(138,29,78);
     background: linear-gradient(90deg, rgba(138,29,78,1) 0%, rgba(213,161,30,1) 47%, rgba(138,29,78,1) 100%);
+}.btn-auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-evento{
@@ -63,4 +84,14 @@
     position: fixed;
     bottom: 20px;
 
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+    font-size: 14px;
+}
+.info a{
+    font-size: 16px;
 }

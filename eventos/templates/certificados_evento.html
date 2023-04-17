@@ -6,13 +6,19 @@
 {% endblock %}
 
 {% block 'conteudo' %}
+    {% if messages %}    
+    <div class="notifications ">
+        {% for message in messages %}                         
+                <div class=" alert {{ message.tags }}" id="notification">
+                        {{ message }}
+                    </div>           
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="container">
         <br>
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert {{ message.tags }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
+        
         <br>
         <div class="row">
             <div class="col-md-2">

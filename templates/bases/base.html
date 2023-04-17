@@ -7,16 +7,34 @@
     <!-- CSS Geral-->
     <link href="{% static 'geral/css/base.css' %}" rel="stylesheet">
 
+    <!-- JavaScript Geral -->
+    <script src="{% static 'geral/js/noti.js'%}" defer></script>
+
+    <!-- JavaScript usuarios -->
+    <script src="{% static 'usuarios/js/hide.js'%}" defer></script>
 
     <title>Type.Event |{% block 'title' %}{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <!--    Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Adicione o link do css -->
+  <link href="https://cdn.jsdelivr.net/npm/@kazzkiq/progressbar.js@1.1.0/dist/progressbar.min.css" rel="stylesheet" />
+    
     {% block 'head' %}{% endblock %}
+
+
   
   </head>
   <body>
     {% block 'body' %}{% endblock %}
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Adicione o script -->
+  <script src="https://cdn.jsdelivr.net/npm/@kazzkiq/progressbar.js@1.1.0/dist/progressbar.min.js"></script>
+  
   </body>
 </html>

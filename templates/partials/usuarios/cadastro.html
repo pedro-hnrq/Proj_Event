@@ -1,39 +1,52 @@
+{% if messages %}    
+    <div class="notifications ">
+        {% for message in messages %}                         
+                <div class=" alert {{ message.tags }}" id="notification">
+                        {{ message }}
+                    </div>           
+        {% endfor %}
+    </div>
+{% endif %}
+
 <div class="box-form">
     <h3>CADASTRO</h3>
     <hr style="border-color: #7E7B7C">
 
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert {{ message.tags }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
+    
+        
 
     <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
         <label>Username:</label> 
         <input type="text" class="form-control" placeholder="Username..." name="username">
         <br>
-        <label>E-mail:</label>
-        <input type="email" class="form-control" placeholder="E-mail..." name="email">
+        <div class="input.field">
+            <label>E-mail:</label>
+            <input type="email" class="form-control" placeholder="E-mail..." name="email">
+        </div>
+        
         <br>
         <div class="row">
-            <div class="col-md">
+            <div class="col-md input-field">
                 <label>Senha:</label>
                 <input type="password" class="form-control" placeholder="Senha..." name="senha">
+                <i class="bx bx-hide show-hide"></i>
             </div>
 
-            <div class="col-md">
+            <div class="col-md input-field">
                 <label>Confirmar senha:</label>
                 <input type="password" class="form-control" placeholder="Confirmar senha..." name="confirmar_senha">
+                <i class="bx bx-hide show-hide"></i>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md">
+            <div class=" btn-auth">
                 <input type="submit" value="CADASTRAR" class="btn-principal">
             </div>
-
-            <div class="col-md">
-                <a href="{% url 'login' %}" class="link">Já possuo uma conta</a>
+        </div>
+        <div class="row">    
+            <div class=" info">
+                <p>Já tem uma conta?<a href="{% url 'login' %}" class="link"> Loga-se</a>
             </div>
 
                 
