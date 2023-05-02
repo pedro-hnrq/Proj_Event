@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from django.contrib.messages import constants
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,3 +133,19 @@ MESSAGE_TAGS = {
     constants.INFO: 'alert-info',
     constants.WARNING: 'alert-warning',
 }
+
+# Email
+
+# if DEBUG:
+#
+#     EMAIL_HOST_EMAIL = "pedro@pythonfulll.com.br"
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#     EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+#     EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+#     EMAIL_PORT = config('EMAIL_PORT')
+#     EMAIL_HOST = config('EMAIL_HOST')
+
+## Envia o e-mail via terminal
+# else:
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST_EMAIL = config('EMAIL_HOST_EMAIL')
