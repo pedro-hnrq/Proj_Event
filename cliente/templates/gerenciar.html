@@ -5,15 +5,15 @@
     <!-- CSS Gerenciar Evento -->
     <link href="{% static 'evento/css/gerenciar_evento.css' %}" rel="stylesheet">
 {% endblock %}
-{% block 'title' %} Gerenciar Evento{% endblock %}
+{% block 'title' %} Gerenciar{% endblock %}
 {% block 'conteudo' %}
     <div class="container">
         <br>
         <div class="row">
             <div class="col-md">
-                <form action="" method="titulo">
-                <label>Título:</label>
-                <input type="text" placeholder="Título..." class="form-control" name="nome">
+                <form action="" method="get">
+                    <label>Título:</label>
+                    <input type="text" placeholder="Título..." class="form-control" name="titulo">
             </div>
 
             <div class="col-md">
@@ -53,20 +53,20 @@
                 <span class="disabled">&laquo;</span>
             {% endif %}
         
-        {% for i in eventos.paginator.page_range %}
-            {% if eventos.number == i %}
-                <span class="current-page">{{ i }}</span>
-            {% elif i > eventos.number|add:'-3' and i < eventos.number|add:'3' and i > 0 %}
-                <a href="?pagina={{ i }}">{{ i }}</a>
-            {% endif %}
+            {% for i in eventos.paginator.page_range %}
+                {% if eventos.number == i %}
+                    <span class="current-page">{{ i }}</span>
+                {% elif i > eventos.number|add:'-3' and i < eventos.number|add:'3' and i > 0 %}
+                    <a href="?pagina={{ i }}">{{ i }}</a>
+                {% endif %}
             {% endfor %}
-            
+                
             {% if eventos.has_next %}
                 <a href="?pagina={{ eventos.next_page_number }}">&raquo;</a>
             {% else %}
                 <span class="disabled">&raquo;</span>
             {% endif %}
-                </div>
+            </div>
         {% endif %}
 
     </div>

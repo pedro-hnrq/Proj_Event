@@ -8,6 +8,8 @@ import os
 from django.conf import settings
 from .models import Ativacao
 from hashlib import sha256
+from django.contrib.auth.views import PasswordResetConfirmView
+from .forms import CustomPasswordResetForm
 
 def cadastro(request):
     if request.method == "GET":
@@ -57,7 +59,7 @@ def cadastro(request):
             ativacao.save()
             
             path_template = os.path.join(settings.BASE_DIR, 'autenticacao/templates/emails/cadastro_confirmado.html')
-            email_html(path_template, 'Cadastro confirmado', [email,], username=username, link_ativacao=f"127.0.0.1:8000/auth/ativar_conta/{token}")
+            email_html(path_template, 'Confirme seu cadastro no Type Event', [email,], username=username, link_ativacao=f"127.0.0.1:8000/auth/ativar_conta/{token}")
             messages.add_message(request, constants.INFO, 'Verifique sua caixa de E-mail.')  
             return redirect(reverse('login'))
         except:
@@ -100,3 +102,7 @@ def ativar_conta(request, token):
     token.save()    
     messages.add_message(request, constants.SUCCESS, f'Conta ativa com sucesso {user}!')
     return redirect('/auth/login')
+
+# class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+#     template_name = 'custom_password_reset_confirm.html'
+#     form_class = CustomPasswordResetForm

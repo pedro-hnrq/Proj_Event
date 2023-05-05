@@ -42,14 +42,14 @@
     height: 65vh;
 }
 
-.link{
-    color: var(--differential-color);
-    text-decoration: none;
-}
+
 /* Olho */
 form .input-field {
     position: relative;
-}.input-field .show-hide {
+    
+}
+
+.input-field .show-hide {
     position: absolute;
     right: 13px;
     top: 68%;
@@ -93,6 +93,8 @@ form .input-field {
 }
 .info a{
     font-size: 16px;
+    color: var(--differential-color);
+    text-decoration: none;
 }
 .recup{
     display: flex;
@@ -100,6 +102,10 @@ form .input-field {
     align-items: right;
     padding-top: 10px;
     font-size: 14px;
+}
+.recup a{
+    color: var(--contrast-color);
+    text-decoration: none;
 }
 h3{
     display: flex;

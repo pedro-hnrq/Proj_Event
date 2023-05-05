@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
+from django.core.paginator import Paginator
 
 @login_required(login_url='/auth/login/')
 def novo_evento(request):
@@ -50,15 +51,21 @@ def novo_evento(request):
         return redirect(reverse('novo_evento'))
 
 @login_required(login_url='/auth/login/')   
-def gerenciar_evento(request):    
+def gerenciar_evento(request):   
+    eventos_por_pagina = 5 # Define o número de eventos exibidos por página 
     if request.method == "GET":
-        eventos = Evento.objects.filter(criador=request.user)
+        
+        eventos = Evento.objects.all()
         
         nome_1 = request.GET.get('nome')        
         if nome_1:
             eventos = eventos.filter(nome__contains=nome_1)
+            
+        paginator = Paginator(eventos, eventos_por_pagina) # Divide a lista de eventos em páginas
+        pagina = request.GET.get('pagina')
+        eventos_paginados = paginator.get_page(pagina) # Obtém os eventos correspondentes à página atual
         
-        return render(request, 'gerenciar_evento.html', {'eventos': eventos})
+        return render(request, 'gerenciar_evento.html', {'eventos': eventos_paginados})
 
 @login_required(login_url='/auth/login/')
 def inscrever_evento(request, id):

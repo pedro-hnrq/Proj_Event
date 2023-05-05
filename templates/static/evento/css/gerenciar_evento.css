@@ -13,3 +13,37 @@ table{
 td, th{
     padding: 20px;
 }
+.container {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination span.disabled {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: var(--secondary-color);
+}
+
+.pagination span.current-page {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin: 0 5px;
+    border-radius: 4px;
+}
