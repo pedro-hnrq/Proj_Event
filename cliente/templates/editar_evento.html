@@ -1,0 +1,58 @@
+{% extends "bases/base_evento.html" %}
+{% block 'title' %} Editar Evento{% endblock %}
+
+{% block 'conteudo' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <br>
+                
+                <br>
+                <h3>Editar evento</h3>
+                <form action="{% url 'editar_evento' id=evento.id %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                    <input type="hidden" name="id" value="{{ evento.id }}">
+                    <label>Nome evento</label>
+                    <input type="text" name="nome" class="form-control" placeholder="Nome..." value="{{ evento.nome }}">
+                    <br>
+                    <label>Descrição</label>
+                    <textarea name="descricao" class="form-control" placeholder="Descrição...">{{ evento.descricao }}</textarea>
+                    <br>
+                    <div class="row">
+                        <div class="col-md">
+                            <label>Data início</label>
+                            <input type="date" name="data_inicio" class="form-control" value="{{ evento.data_inicio }}">
+                        </div>
+                        <div class="col-md">
+                            <label>Data término</label>
+                            <input type="date" name="data_termino" class="form-control" value="{{ evento.data_termino }}">
+                        </div>
+                    </div>
+                    <br>
+                    <label>Carga horária (em horas)</label>
+                    <input type="number" name="carga_horaria" class="form-control" placeholder="X horas" value="{{ evento.carga_horaria }}">
+                    <br>
+                    <label>Logo do evento</label>
+                    <input type="file" name="logo" class="form-control">
+                
+            </div>
+
+            <div style="z-index: 99999" class="col-md">
+                <br>
+                <br>
+                <h3>Paleta de cores</h3>
+                <br>
+                <input type="color" name="cor_principal" value="{{ evento.cor_principal }}"> <span>Cor principal</span>
+                <br>
+                <input type="color" name="cor_secundaria" value="{{ evento.cor_secundaria }}"> <span>Cor secundária</span>
+                <br>
+                <input type="color" name="cor_fundo" value="{{ evento.cor_fundo }}"> <span>Cor de fundo</span>
+                <br>
+                <br>
+                <input type="submit" class="btn-principal" value="Salvar alterações">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

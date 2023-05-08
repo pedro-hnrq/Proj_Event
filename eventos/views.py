@@ -32,6 +32,13 @@ def novo_evento(request):
         
         logo = request.FILES.get('logo')
         
+        
+        if logo:
+            if logo.size > 100_000_000:
+                messages.add_message(request, constants.WARNING,
+                                     'A logo do evento deve ter menos de 10MB')
+                return redirect(f'/home/novo_evento/{id}')
+        
         evento = Evento(
             criador=request.user,
             nome=nome,
