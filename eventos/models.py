@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Evento(models.Model):
-    criador = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    criador = models.ForeignKey(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=200)
     descricao = models.TextField()
     data_inicio = models.DateField()
@@ -19,8 +19,9 @@ class Evento(models.Model):
 
     def __str__(self):
         return self.nome
+
     
 class Certificado(models.Model):
     certificado = models.ImageField(upload_to="certificados")
-    participante = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    evento = models.ForeignKey(Evento, on_delete=models.DO_NOTHING)
+    participante = models.ForeignKey(User, on_delete=models.CASCADE)
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE)

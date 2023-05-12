@@ -1,5 +1,6 @@
 {% extends "bases/base_evento.html" %}
 {% load static %}
+{% block 'title' %} Participantes no Evento{% endblock %}
 
 {% block 'importacoes' %}
     <link href="{% static 'evento/css/gerenciar_evento.css' %}" rel="stylesheet">
@@ -10,33 +11,40 @@
     
 
     <div class="container">
-        <br>
+        <div class="row">
+            <div class="col-md-12">
+
+                <h3>{{evento.nome}}</h3>
+            </div>
+            <hr>
         
         <br>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <img width="100%" src="/media/{{evento.logo}}">
-                <br>
-                <br>
-                <h3>{{evento.nome}}</h3>
+            </div>
+            <div class="col-md-2 span-h5">
+                <h5>N° {{evento.participantes.all.count}} Participantes</h5>
+                <div class="btn-sec">
+                
+                <a href="{% url 'inscrever_evento' evento.id %}" class="btn-secudario" >Inscrição</a>
+                
+                <a class="btn-secudario" href="{% url 'certificados_evento' evento.id %}">Certificados</a>
+                
+                </div>
+                <br><BR>
                 
             </div>
-
-            <div class="col-md">
-                <div class="row">
-                    <div class="col-md-2">
-                        <span class="badge rounded-pill text-bg-danger"><a class="link" href="{% url 'participantes_evento' evento.id %}">Participantes</a></span>
-                    </div>
-                    <div class="col-md-2">
-                        <span class="badge rounded-pill text-bg-danger"><a class="link" href="{% url 'certificados_evento' evento.id %}">Certificados</a></span>
-                    </div>
-                </div>
+            <div class="col-md-2">
+            
             </div>
+        </div>
+            
         </div>
         <hr>
 
         <div class="row">
-            <h5>{{evento.participantes.all.count}} Participantes</h5>
+            
             
             <div class="col-md-4">
                 <table>
@@ -52,18 +60,20 @@
                     {% endfor %}       
                 </table>
                 <br>
-                <div class="row">
-                    <div class="col-md text-center">
-                        <p>X de Z</p>
-                    </div>
-
-                    <div class="col-md ">
-                        <a href="{% url 'gerar_csv' evento.id %}" class="btn-principal" style="text-decoration: none;">Exportar CSV</a>
-                    </div>
-                </div>
+                
+                    
+                    
+               
             </div>
-        
+           
         </div>
+        <hr>
+        
+        <br>
+        <div class="button_insc ">
+            <a href="{% url 'gerar_csv' evento.id %}" class="btn-principal" style="text-decoration: none;">Exportar CSV</a>
+        </div>
+    
         
         
     </div>

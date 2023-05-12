@@ -2,15 +2,7 @@
 {% block 'title' %} Inscrever no Evento{% endblock %}
 
 {% block 'conteudo' %}
-    {% if messages %}    
-    <div class="notifications ">
-        {% for message in messages %}                         
-                <div class=" alert {{ message.tags }}" id="notification">
-                        {{ message }}
-                    </div>           
-        {% endfor %}
-    </div>
-    {% endif %}
+    
     <br>
     <br>
     <div class="container">
@@ -37,9 +29,9 @@
                 </div>
                 <div class="col-md-3">
                     <h4>Cores</h4>
-                    <p>Principal: {{evento.cor_principal}}</p>
-                    <p>Secundário: {{evento.cor_secundaria}}</p>
-                    <p>Fundo: {{evento.cor_fundo}}</p>
+                    <p aria-disabled="false">Principal: <input type="color" value="{{evento.cor_principal}}" disabled></p>
+                    <p aria-disabled="false">Secundário: <input type="color" value="{{evento.cor_secundaria}}" disabled></p>
+                    <p aria-disabled="false">Fundo: <input type="color" value="{{evento.cor_fundo}}" disabled></p>
                 </div>
             </div>
             <hr>
@@ -49,6 +41,9 @@
                 <br>
                 
                
+
+            </div>
+            <div class="button_insc">
                 {% if request.user in evento.participantes.all %}
                     <input style="border-color: green;" type="submit" class="btn-principal" value="JÁ ESTÁ PARTICIPANDO" disabled>
                 {% else%}
@@ -56,7 +51,6 @@
                         <input type="submit" class="btn-principal" value="QUERO PARTICIPAR">
                     </form>
                 {% endif %}
-
             </div>
         </div>
     </div>

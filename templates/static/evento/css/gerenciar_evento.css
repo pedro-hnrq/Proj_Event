@@ -1,87 +1,97 @@
-table{
+table {
     width: 100%;
     padding: 60px;
 }
-.body-box{
+
+.body-box {
     padding: 30px;
 }
-form{
+
+form {
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     margin-left: 20vh;
 }
-.input-box {
-    position: relative;
-    height: 76px;
-    max-width: 750px;
-    width: 100%;
-    background: #f3efef;
-    margin: 20px 180px 0;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  }
-  .input-box .bx-search-alt {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .input-box .bx-search-alt {
-    left: 55px;
-    font-size: 30px;
-    color: #5a5a5a;
-  }
-  .input-box input {
-      height: 100%;
-      width: 100%;
-      outline: none;
-      font-size: 20px;
-      font-weight: 300;
-      border: none;
-      padding: 0 125px 0 65px;
-      background-color: transparent;
-    }
-    .input-box  {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      /* right: 20px; */
-      font-size: 16px;
-      font-weight: 300;
-      color: #fff;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 12px;
-      
-      cursor: pointer;
-    }
-    .input-box  {
-      transform: translateY(-50%) scale(0.98);
-  } 
-  @media screen and (max-width: 500px) {
-    .input-box {
-      height: 66px;
-      margin: 0 8px;
-    }
-    .input-box .bx-search-alt {
-      left: 12px;
-      font-size: 25px;
-    }
-    .input-box {
-      padding: 0 112px 0 50px;
-    }}
 
-.linha{
+
+
+.linha {
     height: 40px;
-    background-color: var(--main-color);
+    background-color: rgba(87,36,59,1);
     padding: 20px;
 }
 
-
-td, th{
+td, th {
     padding: 20px;
+    
 }
+
 .container {
     margin-top: 20px;
+}
+.input-box {
+  position: relative;
+  height: 76px;
+  /* max-width: 750px; */
+  width: 100%;
+  background: #f3efef;
+  margin: 20px 180px 0;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box .bx-search-alt {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.input-box .bx-search-alt {
+  left: 55px;
+  font-size: 30px;
+  color: #5a5a5a;
+}
+
+.input-box #input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 20px;
+  font-weight: 300;
+  border: none;
+  padding: 0 125px 0 65px;
+  background-color: transparent;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.input-box {
+  transform: translateY(-50%) scale(0.98);
+}
+
+@media screen and (max-width: 500px) {
+  .input-box {
+      height: 66px;
+      margin: 0 8px;
+  }
+  .input-box .bx-search-alt {
+      left: 12px;
+      font-size: 25px;
+  }
+  .input-box {
+      padding: 0 112px 0 50px;
+  }
 }
 
 .pagination {
@@ -91,13 +101,13 @@ td, th{
     margin-top: 20px;
 }
 
-.pagination a, .pagination span.disabled {
+.pagination a,
+.pagination span.disabled {
     background-color: var(--main-color);
     color: white;
     border: none;
     padding: 5px 10px;
     text-decoration: none;
-    /* margin: 0 5px; */
     border-radius: 4px;
 }
 
@@ -112,9 +122,60 @@ td, th{
     padding: 5px 10px;
     text-decoration: none;
     margin: 0 12px;
-    border-radius: 4px;
+    border-radius: 4
 }
 
-
- 
+.span-h5{
   
+  justify-content: center;
+  align-items: center;
+}
+#meio{
+  /* margin-left:20px; */
+  justify-content: center;
+  align-items: center;
+}
+/* .btn-sec{
+  display: inline;
+  
+  background-color: red;
+} */
+.btn-secudario{  
+  display: block; 
+  margin-top: 10px;
+  text-align: center; 
+  background-color: transparent;
+  border: 1px solid var(--contrast-color);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}.btn-secudario:hover{  
+  background:  rgba(213,161,30,1);
+}
+.btn-terce{
+ 
+    display: grid;
+    margin-top: 20px;
+    text-align: center; 
+    background-color: transparent;
+    border: 1px solid var(--contrast-color);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.btn-terce:hover{  
+    background:  rgba(87,36,59,1);
+  }
+.pro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+  font-size: 32px;
+}

@@ -35,20 +35,22 @@ def excluir_evento(request, id):
 
 @login_required(login_url='/auth/login/')
 def editar_evento(request, id):
+    evento = get_object_or_404(Evento, id=id)
+    
     if request.method == "GET":
-        evento = get_object_or_404(Evento, id=id)
+        
         return render(request, 'editar_evento.html', {'evento': evento})    
   
     elif request.method == "POST":
-        nome = request.POST.get('nome')
-        descricao = request.POST.get('descricao')
-        data_inicio = request.POST.get('data_inicio')
-        data_termino = request.POST.get('data_termino')
-        carga_horaria = request.POST.get('carga_horaria')
+        evento.nome = request.POST.get('nome')
+        evento.descricao = request.POST.get('descricao')
+        evento.data_inicio = request.POST.get('data_inicio')
+        evento.data_termino = request.POST.get('data_termino')
+        evento.carga_horaria = request.POST.get('carga_horaria')
 
-        cor_principal = request.POST.get('cor_principal')
-        cor_secundaria = request.POST.get('cor_secundaria')
-        cor_fundo = request.POST.get('cor_fundo')
+        evento.cor_principal = request.POST.get('cor_principal')
+        evento.cor_secundaria = request.POST.get('cor_secundaria')
+        evento.cor_fundo = request.POST.get('cor_fundo')
         
         logo = request.FILES.get('logo')
         
@@ -58,19 +60,8 @@ def editar_evento(request, id):
                                      'A logo do evento deve ter menos de 10MB')
                 return redirect(f'/home/editar_evento/{id}')
         
-        evento = Evento(
-            criador=request.user,
-            nome=nome,
-            descricao=descricao,
-            data_inicio=data_inicio,
-            data_termino=data_termino,
-            carga_horaria=carga_horaria,
-            cor_principal=cor_principal,
-            cor_secundaria=cor_secundaria,
-            cor_fundo=cor_fundo,
-            logo=logo,
-        )
+            evento.logo = logo
         
         evento.save()
-        messages.add_message(request, constants.SUCCESS, f'Evento {evento.nome} editado com sucesso')
+        messages.add_message(request, constants.INFO, f'Evento {evento.nome} editado com sucesso')
         return redirect(reverse('gerenciar'))

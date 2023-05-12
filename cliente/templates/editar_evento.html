@@ -21,19 +21,30 @@
                     <div class="row">
                         <div class="col-md">
                             <label>Data início</label>
-                            <input type="date" name="data_inicio" class="form-control" value="{{ evento.data_inicio }}">
+                            <input type="date" name="data_inicio" class="form-control" value="{{ evento.data_inicio|date:'Y-m-d' }}">
                         </div>
                         <div class="col-md">
                             <label>Data término</label>
-                            <input type="date" name="data_termino" class="form-control" value="{{ evento.data_termino }}">
+                            <input type="date" name="data_termino" class="form-control" value="{{ evento.data_termino|date:'Y-m-d' }}">
                         </div>
                     </div>
                     <br>
                     <label>Carga horária (em horas)</label>
                     <input type="number" name="carga_horaria" class="form-control" placeholder="X horas" value="{{ evento.carga_horaria }}">
                     <br>
-                    <label>Logo do evento</label>
-                    <input type="file" name="logo" class="form-control">
+                    <div class="image-container">
+                        
+                            {% if evento.logo %}
+                                <label>Logo do evento</label>
+                                <img src="{{ evento.logo.url }}" class="log_img" alt="Logo do evento" width="75" height="75">
+                            
+                            {% else %}
+                                
+                                <label>Selecione a logo do evento</label>
+                            {% endif %}
+                                <input type="file" name="logo" id="button_img" class="form-control">
+                        
+                    </div>
                 
             </div>
 
