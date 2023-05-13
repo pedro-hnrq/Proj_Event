@@ -95,7 +95,7 @@ def participantes_evento(request, id):
         messages.add_message(request, constants.WARNING, 'Você não tem permissão para acessar esta página.')
         return redirect('gerenciar_evento')
     if request.method == "GET":
-        participantes = evento.participantes.all()[::3]
+        participantes = evento.participantes.all()
         return render(request, 'participantes_evento.html', {'evento': evento, 'participantes': participantes})
 
 
@@ -108,7 +108,7 @@ def gerar_csv(request, id):
     participantes = evento.participantes.all()
     
     if not participantes.exists():
-        messages.add_message(request, constants.ERROR, 'Não há participantes inscritos no evento.')
+        messages.add_message(request, constants.ERROR, 'Não há participantes inscritos no evento, para gerar CSV.')
         return redirect('participantes_evento', id=id)
     
     token = f'{token_urlsafe(6)}.csv'

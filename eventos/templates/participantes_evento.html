@@ -52,12 +52,13 @@
                         <th>Nome</th>
                         <th>E-mail</th>
                     </tr>
+                    
                     {% for participante in participantes %}
                         <tr class="{% cycle 'linha' 'linha2' %}">
                             <td>{{participante.username}}</td>
                             <td>{{participante.email}}</td>
                         </tr>
-                    {% endfor %}       
+                    {% endfor %}     
                 </table>
                 <br>
                 

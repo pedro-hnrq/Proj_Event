@@ -9,7 +9,7 @@ from django.conf import settings
 from .models import Ativacao
 from hashlib import sha256
 from django.contrib.auth.views import PasswordResetConfirmView
-from .forms import CustomPasswordResetForm
+
 
 def cadastro(request):
     if request.method == "GET":
@@ -103,6 +103,3 @@ def ativar_conta(request, token):
     messages.add_message(request, constants.SUCCESS, f'Conta ativa com sucesso {user}!')
     return redirect('/auth/login')
 
-# class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-#     template_name = 'custom_password_reset_confirm.html'
-#     form_class = CustomPasswordResetForm
