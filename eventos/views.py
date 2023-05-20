@@ -150,6 +150,7 @@ def gerar_certificado(request, id):
     certificados_gerados = 0
     
     for participante in evento.participantes.all():
+        token = token_urlsafe(8)
         # TODO: validar se o certificado foi gerado
         img = Image.open(path_template) # Abrir a imagem
         draw = ImageDraw.Draw(img) # Escrever na imagem
@@ -167,21 +168,25 @@ def gerar_certificado(request, id):
         
         img_final = InMemoryUploadedFile(output,
                                          'ImageField',
-                                         f'{token_urlsafe(8)}.png',
-                                         'imagem.jpeg',
+                                         f'{token}.png',
+                                         'imagem.png',
                                          sys.getsizeof(output),
                                          None)
+
       
-        certificado_gerado = Certificado(
-            certificado=img_final,
-            participante=participante,
-            evento=evento,
+        certificado_gerado = Certificado(certificado=img_final,
+                                         participante=participante,
+                                         evento=evento,
         )
         certificado_gerado.save()
+        
+        certificados_gerados += 1
         
         # if certificados_gerados != evento.participantes.all().count():
         #     messages.add_message(request, constants.ERROR, 'Ocorreu um erro na geração de certificados')
         # else:
+        #     messages.add_message(request, constants.SUCCESS, 'Certificados gerados')
+        
     
     messages.add_message(request, constants.SUCCESS, 'Certificados gerados')
         
